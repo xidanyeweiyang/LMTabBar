@@ -7,6 +7,7 @@
 //
 
 #import "LMTabBarController.h"
+#import "UITabBar+badge.h"
 #import "ViewController.h"
 #import "ViewController1.h"
 #import "ViewController2.h"
@@ -19,7 +20,7 @@
 #define LMColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0] //<<< 用10进制表示颜色，例如（255,255,255）白色
 #define LMRandomColor LMColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
 
-@interface LMTabBarController ()<UINavigationControllerDelegate,UITabBarControllerDelegate>
+@interface LMTabBarController ()<UINavigationControllerDelegate,UITabBarControllerDelegate,UITabBarDelegate>
 
 @property (nonatomic, strong) NSMutableArray *items;
 
@@ -50,6 +51,10 @@
     [[UINavigationBar appearance] setBackgroundImage:[self imageWithColor:LMColor(253, 218, 68)] forBarMetrics:UIBarMetricsDefault];
     
     
+    [self.tabBar showBadgeOnItemIndex:0];
+    
+    [self.tabBar showBadgeOnItemIndex:1 andWithNum:@"99"];
+    
     
 }
 
@@ -62,6 +67,7 @@
 - (void)setUpTabBar{
     
     [self setValue:[[LMTabBar alloc] init] forKey:@"tabBar"];
+    
 }
 
 
@@ -134,8 +140,7 @@
     UIImage *image = [UIImage imageNamed:selectedImageName];
     image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     viewController.tabBarItem.selectedImage = image;
-    
-    
+        
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
     [self addChildViewController:nav];
     
@@ -157,14 +162,43 @@
     
     return image;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    
+    NSLog(@"%s",__func__);
+    
+    NSInteger index = [tabBar.items indexOfObject:item];
+    
+    [self addAnimationToIndex:index];
+    
 }
-*/
+
+- (void)addAnimationToIndex:(NSInteger)index{
+    
+    NSMutableArray * tabbarbuttonArray = [NSMutableArray array];
+    for (UIView *tabBarButton in self.tabBar.subviews) {
+        if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [tabbarbuttonArray addObject:tabBarButton];
+        }
+    }
+    
+    CAKeyframeAnimation *bounceAnimation = [[CAKeyframeAnimation alloc] init];
+    
+    bounceAnimation.keyPath = @"transform.scale";
+    
+    bounceAnimation.values = @[@1.0 ,@1.4, @0.9, @1.15, @0.95, @1.02, @1.0];
+    
+    bounceAnimation.duration = 0.6;
+    
+    bounceAnimation.calculationMode = kCAAnimationCubic;
+    
+    [[tabbarbuttonArray[index] layer] addAnimation:bounceAnimation forKey:@"bounceAnimation"];
+    //    UIImage *renderImage = [iconView.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    //
+    //    iconView.image = renderImage;
+    //
+    //    iconView.tintColor = self.iconSelctexColor;
+    
+}
 
 @end

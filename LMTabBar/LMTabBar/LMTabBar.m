@@ -13,9 +13,10 @@
 #define kItemSelectedColor [UIColor colorWithRed:113/255.0f green:109/255.0f blue:104/255.0f alpha:1]
 #define kItemNomalColor [UIColor colorWithRed:51/255.0f green:153/255.0f blue:255/255.0f alpha:1]
 
-@interface LMTabBar ()
+@interface LMTabBar ()<UITabBarDelegate>
 
 @property (nonatomic, strong) LMPublishButton *publishButton;
+
 
 @end
 
@@ -31,6 +32,7 @@
         [self addSubview:button];
         self.publishButton = button;
         
+        self.delegate = self;
     }
     
     return self;
@@ -63,6 +65,7 @@
         if (![viewClass isEqualToString:@"UITabBarButton"]) continue;
         
         CGFloat buttonX = buttonIndex * buttonW;
+
         if (buttonIndex >= 2) { // 右边2个按钮
             buttonX += buttonW;
         }
@@ -73,5 +76,31 @@
         
     }
 }
+
+
+
+
+- (void)addAnimationToView:(UIView *)view{
+    
+    CAKeyframeAnimation *bounceAnimation = [[CAKeyframeAnimation alloc] init];
+    
+    bounceAnimation.keyPath = @"transform.scale";
+    
+    bounceAnimation.values = @[@1.0 ,@1.4, @0.9, @1.15, @0.95, @1.02, @1.0];
+    
+    bounceAnimation.duration = 0.6;
+    
+    bounceAnimation.calculationMode = kCAAnimationCubic;
+    
+    [view.layer addAnimation:bounceAnimation forKey:@"bounceAnimation"];
+    
+//    UIImage *renderImage = [iconView.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    
+//    iconView.image = renderImage;
+//    
+//    iconView.tintColor = self.iconSelctexColor;
+
+}
+
 
 @end

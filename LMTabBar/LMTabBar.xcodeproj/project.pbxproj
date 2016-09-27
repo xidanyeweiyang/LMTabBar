@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A1143BF1D9AB1BC00D7C3E5 /* UITabBar+badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1143BE1D9AB1BC00D7C3E5 /* UITabBar+badge.m */; };
 		8A695EC71D9A1A0E001E752F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A695EC61D9A1A0E001E752F /* main.m */; };
 		8A695ECA1D9A1A0E001E752F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A695EC91D9A1A0E001E752F /* AppDelegate.m */; };
 		8A695ECD1D9A1A0E001E752F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A695ECC1D9A1A0E001E752F /* ViewController.m */; };
@@ -19,11 +20,12 @@
 		8A695EE71D9A1B4B001E752F /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A695EE61D9A1B4B001E752F /* ViewController2.m */; };
 		8A695EEA1D9A1B54001E752F /* ViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A695EE91D9A1B54001E752F /* ViewController3.m */; };
 		8A695EED1D9A1B5E001E752F /* ViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A695EEC1D9A1B5E001E752F /* ViewController4.m */; };
-		8A695EF31D9A4F34001E752F /* LMHotBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A695EF21D9A4F34001E752F /* LMHotBadgeView.m */; };
 		8A695EF61D9A6D5B001E752F /* LMPublishButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A695EF51D9A6D5B001E752F /* LMPublishButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A1143BD1D9AB1BC00D7C3E5 /* UITabBar+badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+badge.h"; sourceTree = "<group>"; };
+		8A1143BE1D9AB1BC00D7C3E5 /* UITabBar+badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+badge.m"; sourceTree = "<group>"; };
 		8A695EC21D9A1A0E001E752F /* LMTabBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMTabBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A695EC61D9A1A0E001E752F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8A695EC81D9A1A0E001E752F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -46,8 +48,6 @@
 		8A695EE91D9A1B54001E752F /* ViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController3.m; sourceTree = "<group>"; };
 		8A695EEB1D9A1B5E001E752F /* ViewController4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController4.h; sourceTree = "<group>"; };
 		8A695EEC1D9A1B5E001E752F /* ViewController4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController4.m; sourceTree = "<group>"; };
-		8A695EF11D9A4F34001E752F /* LMHotBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHotBadgeView.h; sourceTree = "<group>"; };
-		8A695EF21D9A4F34001E752F /* LMHotBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMHotBadgeView.m; sourceTree = "<group>"; };
 		8A695EF41D9A6D5B001E752F /* LMPublishButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMPublishButton.h; sourceTree = "<group>"; };
 		8A695EF51D9A6D5B001E752F /* LMPublishButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMPublishButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +63,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A1143BC1D9AA2B300D7C3E5 /* LMTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				8A1143BD1D9AB1BC00D7C3E5 /* UITabBar+badge.h */,
+				8A1143BE1D9AB1BC00D7C3E5 /* UITabBar+badge.m */,
+				8A695EDF1D9A1A8A001E752F /* LMTabBar.h */,
+				8A695EE01D9A1A8A001E752F /* LMTabBar.m */,
+				8A695EF41D9A6D5B001E752F /* LMPublishButton.h */,
+				8A695EF51D9A6D5B001E752F /* LMPublishButton.m */,
+			);
+			name = LMTabBar;
+			sourceTree = "<group>";
+		};
 		8A695EB91D9A1A0E001E752F = {
 			isa = PBXGroup;
 			children = (
@@ -82,14 +95,9 @@
 		8A695EC41D9A1A0E001E752F /* LMTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				8A1143BC1D9AA2B300D7C3E5 /* LMTabBar */,
 				8A695EDC1D9A1A73001E752F /* LMTabBarController.h */,
 				8A695EDD1D9A1A73001E752F /* LMTabBarController.m */,
-				8A695EDF1D9A1A8A001E752F /* LMTabBar.h */,
-				8A695EE01D9A1A8A001E752F /* LMTabBar.m */,
-				8A695EF41D9A6D5B001E752F /* LMPublishButton.h */,
-				8A695EF51D9A6D5B001E752F /* LMPublishButton.m */,
-				8A695EF11D9A4F34001E752F /* LMHotBadgeView.h */,
-				8A695EF21D9A4F34001E752F /* LMHotBadgeView.m */,
 				8A695EC81D9A1A0E001E752F /* AppDelegate.h */,
 				8A695EC91D9A1A0E001E752F /* AppDelegate.m */,
 				8A695ECB1D9A1A0E001E752F /* ViewController.h */,
@@ -192,7 +200,7 @@
 				8A695EE71D9A1B4B001E752F /* ViewController2.m in Sources */,
 				8A695EDE1D9A1A73001E752F /* LMTabBarController.m in Sources */,
 				8A695ECD1D9A1A0E001E752F /* ViewController.m in Sources */,
-				8A695EF31D9A4F34001E752F /* LMHotBadgeView.m in Sources */,
+				8A1143BF1D9AB1BC00D7C3E5 /* UITabBar+badge.m in Sources */,
 				8A695EE41D9A1B42001E752F /* ViewController1.m in Sources */,
 				8A695EF61D9A6D5B001E752F /* LMPublishButton.m in Sources */,
 				8A695ECA1D9A1A0E001E752F /* AppDelegate.m in Sources */,

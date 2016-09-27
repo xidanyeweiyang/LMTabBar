@@ -10,7 +10,6 @@
 
 @interface LMTabBar : UITabBar
 
-+ (instancetype)lm_tabBarWithFrame:(CGRect)frame;
 
 @property (nonatomic, strong) UIButton *previousBtn;
 
